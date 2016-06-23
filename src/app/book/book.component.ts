@@ -15,6 +15,14 @@ export class BookComponent implements OnInit {
 
   constructor() {}
 
+  rateUp() {
+    this.book.rating += 1;
+  }
+
+  rateDown() {
+    this.book.rating -= 1;
+  }
+
   ngOnInit() {
   }
 
