@@ -8,4 +8,5 @@
       <!-- Methode der Komponente aufrufen -->
       <button (click)="rateUp()" class="btn btn-success">Rate Up</button>
       <button (click)="rateDown()" class="btn btn-danger">Rate Down</button>
+      <a [routerLink]="['book', book.title]" class="btn btn-link">Details</a>
 </div>
