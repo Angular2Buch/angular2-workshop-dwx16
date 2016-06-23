@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http'; // HTTP-Providers nicht vergessen
 import { BookComponent } from '../book';
 import { CreateBookComponent } from '../create-book';
 import { Book } from '../shared';
@@ -14,11 +15,17 @@ export class DashboardComponent implements OnInit {
 
   books: Book[];
 
-  constructor() {
-    this.books = [
-      new Book('AngularJS', 'Es war schön mit dir...'), 
-      new Book('Angular 2', 'Einführung in die komponentengetriebene Entwicklung...')
-    ];
+  constructor(private http: Http) {
+  
+    this.http.get('http://book-monkey2-api.angular2buch.de/books')
+             .subscribe(response => {
+               this.books = response.json().map(raw => 
+                new Book(raw.title, raw.description, raw.rating))
+              });
+    // this.books = [
+    //   new Book('AngularJS', 'Es war schön mit dir...'), 
+    //   new Book('Angular 2', 'Einführung in die komponentengetriebene Entwicklung...')
+    // ];
   }
 
   create(book: Book) {

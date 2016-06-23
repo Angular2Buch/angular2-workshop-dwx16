@@ -1,4 +1,5 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { RouterConfig, provideRouter } from '@angular/router';
 import { enableProdMode } from '@angular/core';
 
@@ -16,5 +17,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [ provideRouter(AppRoutes) ]);
+bootstrap(AppComponent, [ provideRouter(AppRoutes), HTTP_PROVIDERS ]);
 
