@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookComponent } from '../book';
+import { CreateBookComponent } from '../create-book';
 import { Book } from '../shared';
 
 @Component({
@@ -7,7 +8,7 @@ import { Book } from '../shared';
   selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [BookComponent]
+  directives: [BookComponent, CreateBookComponent]
 })
 export class DashboardComponent implements OnInit {
 
@@ -20,10 +21,8 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
-  create(title, description) {
-    this.books.push(new Book(title.value, description.value));
-
-    title.value = description.value = '';
+  create(book: Book) {
+    this.books.push(book);
   }
 
   sort(book: Book) {

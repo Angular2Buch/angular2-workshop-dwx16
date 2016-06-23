@@ -4,6 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "ng": "ng",
     "start": "ng serve",
     "postinstall": "typings install",
     "lint": "tslint \"src/**/*.ts\"",

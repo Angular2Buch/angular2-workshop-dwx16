@@ -1,9 +1,4 @@
-<form action="" class="form">
-        <input type="text" class="form-control" placeholder="Bitte Titel Eingeben" #title>
-        <input type="text" class="form-control" placeholder="Bitte Beschreibung eingeben" #description>
-        <button (click)="create(title, description)" class="btn">Submit</button>
-</form>
-
+<br-create-book (bookCreated)="create($event)"></br-create-book>
 
 <hr>
 
