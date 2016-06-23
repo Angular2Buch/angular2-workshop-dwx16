@@ -20,6 +20,12 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
+  create(title, description) {
+    this.books.push(new Book(title.value, description.value));
+
+    title.value = description.value = '';
+  }
+
   sort(book: Book) {
     this.books.sort((current, next) => next.rating - current.rating);
   }
