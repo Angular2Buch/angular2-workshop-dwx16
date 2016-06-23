@@ -1,2 +1,3 @@
 <br-book [book]="book"
-        *ngFor="let book of books"></br-book>
+         (rated)="sort($event)"
+         *ngFor="let book of books"></br-book>

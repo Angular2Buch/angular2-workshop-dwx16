@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
+  sort(book: Book) {
+    this.books.sort((current, next) => next.rating - current.rating);
+  }
+
   ngOnInit() {
   }
 

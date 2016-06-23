@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Book } from '../shared';
 
 @Component({
@@ -12,15 +12,20 @@ export class BookComponent implements OnInit {
   // Öffentliche Schnittstelle definieren
   // Eine Komponente Book bekommt ein Buch überreicht...
   @Input() book: Book;
+  @Output() rated: EventEmitter<Book>;
 
-  constructor() {}
+  constructor() {
+    this.rated = new EventEmitter<Book>();
+  }
 
   rateUp() {
-    this.book.rating += 1;
+    this.book.rateUp();
+    this.rated.emit(this.book);
   }
 
   rateDown() {
-    this.book.rating -= 1;
+    this.book.rateDown();
+    this.rated.emit(this.book);
   }
 
   ngOnInit() {
